@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AR Сцена</title>
+  <title>Three.js Scene</title>
 
   <style>
     * {
@@ -27,60 +27,68 @@
       background: #000;
     }
 
-    .overlay {
+    .panel {
       position: absolute;
+      z-index: 10;
+      color: white;
+      background: rgba(0, 0, 0, 0.42);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+    }
+
+    .info {
       top: 16px;
       left: 16px;
-      z-index: 3;
-      padding: 12px 18px;
-      color: white;
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 14px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      padding: 14px 18px;
       max-width: calc(100vw - 32px);
     }
 
-    .overlay h1 {
+    .info h1 {
       margin: 0 0 6px;
       font-size: 20px;
     }
 
-    .overlay p {
+    .info p {
       margin: 0;
       font-size: 14px;
-      opacity: 0.92;
-      line-height: 1.4;
+      line-height: 1.45;
+      opacity: 0.95;
     }
 
     .back-link {
-      position: absolute;
       top: 16px;
       right: 16px;
-      z-index: 3;
+      padding: 12px 16px;
       text-decoration: none;
       color: white;
-      background: rgba(0, 0, 0, 0.45);
-      padding: 10px 14px;
-      border-radius: 12px;
       font-size: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(8px);
     }
 
     .hint {
-      position: absolute;
-      bottom: 16px;
       left: 16px;
-      z-index: 3;
-      padding: 10px 14px;
-      color: white;
-      background: rgba(0, 0, 0, 0.45);
-      border-radius: 12px;
+      bottom: 16px;
+      padding: 12px 16px;
+      max-width: min(430px, calc(100vw - 32px));
       font-size: 13px;
-      max-width: min(420px, calc(100vw - 32px));
       line-height: 1.5;
+    }
+
+    .center-marker {
+      position: absolute;
+      z-index: 9;
+      left: 50%;
+      top: 50%;
+      width: 14px;
+      height: 14px;
+      margin-left: -7px;
+      margin-top: -7px;
+      border: 2px solid rgba(255,255,255,0.75);
+      border-radius: 50%;
+      box-shadow: 0 0 18px rgba(255,255,255,0.45);
+      pointer-events: none;
     }
   </style>
 
@@ -94,16 +102,18 @@
 </head>
 <body>
   <div id="app">
-    <div class="overlay">
-      <h1>AR Сцена</h1>
+    <div class="panel info">
+      <h1>AR / Three.js Сцена</h1>
       <p>Мещерякова Анастасія · Група ІМ-25</p>
     </div>
 
-    <a class="back-link" href="index.html">На головну</a>
+    <a class="panel back-link" href="index.html">На головну</a>
 
-    <div class="hint">
-      Дозвольте доступ до камери. Після цього відео буде фоном, а 3D-куб Three.js відобразиться поверх нього.
+    <div class="panel hint">
+      Дозвольте доступ до камери. Відео буде відображене як фон, а 3D-об’єкт з Three.js — поверх нього.
     </div>
+
+    <div class="center-marker"></div>
   </div>
 
   <script type="module" src="main.js"></script>
