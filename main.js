@@ -2,7 +2,9 @@ import * as THREE from "three";
 
 const app = document.getElementById("app");
 
-// 🎥 ВИДЕО (фон)
+// --------------------
+// ВІДЕО
+// --------------------
 const video = document.createElement("video");
 video.autoplay = true;
 video.muted = true;
@@ -18,10 +20,11 @@ video.style.zIndex = "1";
 
 app.appendChild(video);
 
-// 🎬 THREE SCENE
+// --------------------
+// THREE.JS
+// --------------------
 const scene = new THREE.Scene();
 
-// 📷 Камера
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
@@ -30,7 +33,6 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.z = 4;
 
-// 🖥 Рендерер
 const renderer = new THREE.WebGLRenderer({
   alpha: true,
   antialias: true
@@ -46,16 +48,21 @@ renderer.domElement.style.zIndex = "2";
 
 app.appendChild(renderer.domElement);
 
-// 💡 Свет
-const ambient = new THREE.AmbientLight(0xffffff, 1.5);
-scene.add(ambient);
+// --------------------
+// СВІТЛО
+// --------------------
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+scene.add(ambientLight);
 
-const light = new THREE.DirectionalLight(0xffffff, 2);
-light.position.set(2, 3, 5);
+const light = new THREE.DirectionalLight(0xffffff, 1.5);
+light.position.set(3, 3, 5);
 scene.add(light);
 
-// 🟥 Куб
+// --------------------
+// КУБ
+// --------------------
 const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+
 const material = new THREE.MeshStandardMaterial({
   color: 0xff2d55
 });
@@ -63,24 +70,29 @@ const material = new THREE.MeshStandardMaterial({
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
-// 🎥 Запуск камеры
+// --------------------
+// КАМЕРА
+// --------------------
 async function startCamera() {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({
-      video: true
+      video: true,
+      audio: false
     });
 
     video.srcObject = stream;
     await video.play();
   } catch (e) {
-    alert("Камера не работает. Проверь разрешение или HTTPS.");
+    alert("Камера не працює. Відкрий через GitHub Pages або дай доступ.");
     console.error(e);
   }
 }
 
 startCamera();
 
-// 🔄 Анимация
+// --------------------
+// АНІМАЦІЯ
+// --------------------
 function animate() {
   requestAnimationFrame(animate);
 
@@ -92,7 +104,9 @@ function animate() {
 
 animate();
 
-// 📱 Адаптация
+// --------------------
+// RESIZE
+// --------------------
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
