@@ -13,7 +13,9 @@
       margin: 0;
       min-height: 100vh;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      background: linear-gradient(135deg, #0f172a, #1d4ed8, #38bdf8);
+      background-size: 200% 200%;
+      animation: bgMove 10s ease infinite;
       color: white;
       display: flex;
       align-items: center;
@@ -21,77 +23,90 @@
       padding: 20px;
     }
 
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     .container {
       width: 100%;
-      max-width: 850px;
+      max-width: 900px;
       padding: 40px;
-      border-radius: 24px;
+      border-radius: 28px;
       background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
       text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .subtitle {
       font-size: 18px;
       opacity: 0.9;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
     }
 
     h1 {
-      margin: 0 0 10px;
-      font-size: 42px;
+      margin: 0;
+      font-size: 44px;
+      line-height: 1.2;
     }
 
     h2 {
-      margin: 0 0 25px;
+      margin: 10px 0 28px;
       font-size: 24px;
       font-weight: normal;
       opacity: 0.95;
     }
 
     .card {
-      margin: 25px 0;
-      padding: 20px;
-      border-radius: 18px;
+      margin: 0 auto 28px;
+      max-width: 760px;
+      padding: 24px;
+      border-radius: 22px;
       background: rgba(255, 255, 255, 0.1);
       text-align: left;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
     }
 
     .card p {
-      margin: 10px 0;
+      margin: 12px 0;
       font-size: 18px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 10px;
       padding: 16px 34px;
       border-radius: 999px;
       text-decoration: none;
       font-size: 18px;
       font-weight: bold;
       color: white;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      box-shadow: 0 8px 20px rgba(0, 114, 255, 0.35);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: linear-gradient(90deg, #06b6d4, #2563eb);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.4);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
     }
 
     .btn:hover {
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 12px 28px rgba(0, 114, 255, 0.45);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 14px 32px rgba(37, 99, 235, 0.5);
+      opacity: 0.96;
     }
 
     footer {
       margin-top: 28px;
-      opacity: 0.8;
       font-size: 14px;
+      opacity: 0.82;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .container {
-        padding: 28px 20px;
+        padding: 28px 18px;
       }
 
       h1 {
@@ -114,20 +129,21 @@
 </head>
 <body>
   <div class="container">
-    <div class="subtitle">Навчальний проєкт з доповненої реальності</div>
+    <div class="subtitle">НАВЧАЛЬНИЙ ПРОЄКТ З ДОПОВНЕНОЇ РЕАЛЬНОСТІ</div>
+
     <h1>Мещерякова Анастасія</h1>
     <h2>Група ІМ-25</h2>
 
     <div class="card">
-      <p><strong>Дисципліна:</strong> Основи розробки додатків доповненої реальності (WebAR)</p>
-      <p><strong>Тема роботи:</strong> Створення сцени Three.js з накладанням відео з веб-камери</p>
-      <p><strong>Опис:</strong> На окремій сторінці реалізовано 3D-сцену, у якій відображається об’єкт Three.js поверх відеопотоку з камери.</p>
+      <p><strong>Тема:</strong> створення вебсторінки з використанням GitHub Pages, титульної сторінки студента та інтерактивної сцени Three.js.</p>
+      <p><strong>Мета роботи:</strong> реалізувати вебпроєкт, у якому головна сторінка містить інформацію про студентку та посилання на окрему сторінку зі сценою Three.js.</p>
+      <p><strong>Функціональність сцени:</strong> після надання доступу до вебкамери відео з камери відображається як фон, а поверх нього рендериться тривимірний об’єкт.</p>
     </div>
 
     <a href="scene.html" class="btn">Відкрити сцену Three.js</a>
 
     <footer>
-      2026 © WebAR Project
+      2026 © WebAR Project · Мещерякова Анастасія · ІМ-25
     </footer>
   </div>
 </body>
