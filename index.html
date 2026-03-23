@@ -2,14 +2,66 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <title>Мій WebAR проєкт</title>
+  <title>WebAR Experience</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+
+    .menu {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 60px;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      opacity: 0.7;
+      margin-bottom: 40px;
+    }
+
+    button {
+      padding: 15px 40px;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      background: #00c6ff;
+      color: black;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0072ff;
+      color: white;
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
-  <h1>Студент: Іван Іваненко</h1>
-  <p>Група: </p>
-  <p>: Доповнена реальність</p>
 
-  <h2>Мій WebAR проєкт:</h2>
-  <a href="scene.html">Перейти до сцени Three.js</a>
+<div class="menu">
+  <h1>WEB AR EXPERIENCE</h1>
+  <p>Натисни, щоб почати</p>
+  <button onclick="start()">START</button>
+</div>
+
+<script>
+  function start() {
+    window.location.href = "scene.html";
+  }
+</script>
+
 </body>
 </html>
