@@ -2,7 +2,7 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Three.js Scene</title>
 
   <style>
@@ -12,13 +12,13 @@
       height: 100%;
       overflow: hidden;
       background: black;
-      font-family: Arial, sans-serif;
     }
 
     #app {
       position: relative;
       width: 100vw;
       height: 100vh;
+      overflow: hidden;
     }
 
     .info {
@@ -28,20 +28,9 @@
       z-index: 10;
       color: white;
       background: rgba(0,0,0,0.5);
-      padding: 10px 14px;
-      border-radius: 12px;
-    }
-
-    .back {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      z-index: 10;
-      color: white;
-      text-decoration: none;
-      background: rgba(0,0,0,0.5);
-      padding: 10px 14px;
-      border-radius: 12px;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-family: Arial;
     }
   </style>
 
@@ -53,16 +42,15 @@
   }
   </script>
 </head>
-
 <body>
-  <div id="app">
-    <div class="info">
-      Мещерякова Анастасія · ІМ-25
-    </div>
 
-    <a href="index.html" class="back">Назад</a>
+<div id="app">
+  <div class="info">
+    Мещерякова Анастасія · ІМ-25
   </div>
+</div>
 
-  <script type="module" src="main.js"></script>
+<script type="module" src="main.js"></script>
+
 </body>
 </html>
